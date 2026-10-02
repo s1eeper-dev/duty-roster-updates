@@ -1,0 +1,13 @@
+{
+ "manifest": {
+  "app": "DutyRoster",
+  "kind": "access",
+  "at": "2026-10-02T19:29:49",
+  "repo": "s1eeper-dev/duty-roster-share",
+  "boxes": {
+   "94b53a479c505c919e8abf9c": "MPIQjfgswwdEbLYkirjnqsfl+RMO8YawesMnxy3mUs+mBYEpxL10u7pR7iqB1uVYrYw2afLVoH2QdGm7B+LG/t1fzXDeCA5QUwhmmCREdmO0NUxx8CVXaSA/kzOIp6idDsCYHc87SHT8M2kUHDqOuCYOpa3fm/wAVIofVrwz268N42cu72UEs2tb2FlZV5sYM9EvJZCnvTEO74Nbn6Nwxcb+j7E8O2j9/W/c66TANePkXGK+0U1PbKMlQEUAOU6x/kUzZOifvpWdp7U5vYnT1aNUsIWnF06X3hbFhQpCXCmds3P0o/hf/AtcZq3l0VK0yRjxyqfpTtt2QfxOCqlvovMprEVhmJJkZyAH8He2pQ==",
+   "0888e8d85e1b22cb1e2c805b": "RwO7GjMkflIbQW6IpTkaOsqV4ghxh30MTc0O8YsdTVzN+d6nOI3Th9n0kJbtsvyuzOwXUHA1F1wWMfXxW+Y2ka4lijQdEaP5omkHM7W4tCoVYiqHrmL0vGJjTTaytSjUXOR+GWdX4LdZLUkbeVh9mZ8i6I29+elu3t+0xXNQqt6wliLqFHmwy92SG5iG5ymoVQwiSuEmk0G2HhRyvvhs8LhHNi1eP4V8CMzr0+KMZLz8VLKyi6e2IharOOWwdqFLKS8GspgvypoWfHvfAoBSR7ipw84CR8aZWgnYGNU7+br2Fllzna/lDcHvRJ596RvWLB8xXx06OgE96Eu6/YZgTFDt7tjEvI2sLzZgVHX4vg=="
+  }
+ },
+ "sig": "e9a79f14027598e0d777c6418469494c8ea47066bd204dfd75b2a276395d8a18a39eb6274237a101aaaf8f1eccd9929a6c17245b1ca0f888fdaf4326e2e1e004"
+}
