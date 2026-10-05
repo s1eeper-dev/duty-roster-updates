@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>당직표 도우미 설치</title>
+<meta name="description" content="당직표 도우미 — Windows PC용 설치 파일 내려받기">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- 설치 안내 페이지 (GitHub Pages, docs/index.html) — 버튼을 눌러야 내려받는다. 버전·날짜·크기는 최신 릴리스에서 읽는다.
+     원본: app/packaging/site/index.html. 실명·당직 자료는 넣지 않는다 (공개 페이지). -->
+<style>
+  :root { --navy: #003B74; --navy-deep: #002A55; --yellow: #F8C018; --ink: #1E2833; --slate: #5B6B7D; --line: #DEE5EE; --tint: #EFF7FF; --bg: #F6F8FB; --card: #fff; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --ink: #E6ECF3; --slate: #9FB0C3; --line: #2A3A4D; --tint: #14304F; --bg: #0E1824; --card: #15212F; --navy: #8DB8E8; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 "IBM Plex Sans KR", "Malgun Gothic", sans-serif; word-break: keep-all; }
+  header { background: #003B74; color: #fff; padding: 18px 16px; }
+  header .in, main { max-width: 640px; margin: 0 auto; }
+  header b { font-size: 18px; letter-spacing: -.2px; }
+  main { padding: 32px 16px 48px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 28px 24px; }
+  h1 { margin: 0 0 6px; font-size: 26px; color: var(--navy); }
+  .ver { color: var(--slate); font-size: 14px; margin: 0 0 22px; }
+  .dl { display: inline-flex; align-items: center; gap: 10px; background: var(--yellow); color: #002A55; font-weight: 700; font-size: 18px;
+        padding: 14px 26px; border-radius: 10px; text-decoration: none; border: 0; cursor: pointer; box-shadow: 0 2px 0 rgba(0,0,0,.12); }
+  .dl:hover { filter: brightness(1.05); }
+  .dl:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+  .dl svg { flex: none; }
+  .sub { color: var(--slate); font-size: 13px; margin: 10px 0 0; }
+  ol { margin: 28px 0 0; padding: 0; list-style: none; counter-reset: s; }
+  ol li { counter-increment: s; position: relative; padding: 10px 0 10px 44px; border-top: 1px solid var(--line); }
+  ol li::before { content: counter(s); position: absolute; left: 0; top: 10px; width: 28px; height: 28px; border-radius: 50%;
+                  background: var(--tint); color: var(--navy); font-weight: 700; display: grid; place-items: center; font-size: 14px; }
+  details { margin-top: 22px; color: var(--slate); font-size: 14px; }
+  details summary { cursor: pointer; color: var(--navy); font-weight: 600; }
+  details ul { margin: 8px 0 0; padding-left: 20px; }
+  footer { text-align: center; color: var(--slate); font-size: 12px; margin-top: 20px; }
+</style>
+</head>
+<body>
+<header><div class="in"><b>당직표 도우미</b></div></header>
+<main>
+  <div class="card">
+    <h1>당직표 도우미 설치</h1>
+    <p class="ver" id="ver">Windows 10·11 PC용</p>
+    <a class="dl" id="dl" href="https://github.com/s1eeper-dev/duty-roster-updates/releases/latest/download/DutyRoster-setup.zip" download>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v11m0 0l-4.5-4.5M10 13l4.5-4.5M3 17h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>내려받기</span>
+    </a>
+    <p class="sub" id="size">설치 파일(zip)</p>
+    <ol>
+      <li>내려받은 zip 파일의 <b>압축을 풉니다</b>.</li>
+      <li><b>[당직표 도우미 설치]</b>를 실행합니다.</li>
+      <li>프로그램 첫 화면의 <b>기기 코드</b>를 관리자에게 보냅니다.</li>
+      <li>받은 <b>사용 키</b>를 넣으면 끝입니다. 이후 업데이트는 자동입니다.</li>
+    </ol>
+    <details id="notes" hidden><summary>이번 버전에서 바뀐 것</summary><ul id="notelist"></ul></details>
+  </div>
+  <footer>사용 키가 있어야 쓸 수 있습니다.</footer>
+</main>
+<script>
+  // 최신 릴리스에서 버전·날짜·크기를 읽는다 — 읽지 못해도 [내려받기]는 고정 주소로 동작한다
+  fetch('https://api.github.com/repos/s1eeper-dev/duty-roster-updates/releases/latest')
+    .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then(rel => {
+      const asset = (rel.assets || []).find(a => a.name === 'DutyRoster-setup.zip')
+      const d = new Date(rel.published_at)
+      const date = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`
+      document.getElementById('ver').textContent = `최신 ${String(rel.tag_name).replace(/^v/, '')} · ${date} · Windows 10·11 PC용`
+      if (asset) {
+        document.getElementById('dl').href = asset.browser_download_url
+        document.getElementById('size').textContent = `설치 파일(zip) · ${Math.round(asset.size / 1e6)}MB`
+      }
+      const lines = String(rel.body || '').split('\n').map(s => s.replace(/^[-*]\s*/, '').trim()).filter(Boolean)
+      if (lines.length) {
+        const ul = document.getElementById('notelist')
+        lines.slice(0, 8).forEach(t => { const li = document.createElement('li'); li.textContent = t; ul.appendChild(li) })
+        document.getElementById('notes').hidden = false
+      }
+    })
+    .catch(() => {})
+</script>
+</body>
+</html>
